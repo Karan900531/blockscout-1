@@ -109,7 +109,8 @@ defmodule Explorer.Chain.Import.Stage.BlockReferencing do
     @default_runners ++
       @ethereum_runners ++
       @optimism_runners ++
-      @polygon_edge_runners ++ @polygon_zkevm_runners ++ @scroll_runners ++ @shibarium_runners ++ @zksync_runners ++ @arbitrum_runners
+      @polygon_edge_runners ++
+      @polygon_zkevm_runners ++ @scroll_runners ++ @shibarium_runners ++ @zksync_runners ++ @arbitrum_runners
   end
 
   @impl Stage

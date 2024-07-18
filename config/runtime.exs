@@ -993,6 +993,10 @@ config :indexer, Indexer.Fetcher.PolygonZkevm.TransactionBatch.Supervisor,
     ConfigHelper.chain_type() == :polygon_zkevm &&
       ConfigHelper.parse_bool_env_var("INDEXER_POLYGON_ZKEVM_BATCHES_ENABLED")
 
+config :indexer, Indexer.Fetcher.Scroll.L1FeeParam, gas_oracle: System.get_env("INDEXER_SCROLL_L2_GAS_ORACLE_CONTRACT")
+
+config :indexer, Indexer.Fetcher.Scroll.L1FeeParam.Supervisor, enabled: ConfigHelper.chain_type() == :scroll
+
 Code.require_file("#{config_env()}.exs", "config/runtime")
 
 for config <- "../apps/*/config/runtime/#{config_env()}.exs" |> Path.expand(__DIR__) |> Path.wildcard() do
